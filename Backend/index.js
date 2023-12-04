@@ -10,7 +10,29 @@ require("dotenv").config();
 app.get("/api/v1", (req, res) => {
     res.send("Welcome");
   });
-app.use(cors());
+var corsOptions = {
+  origin: "*",
+  // function (origin, callback) {
+  //   if (whitelist.indexOf(origin) !== -1) {
+  //     callback(null, true);
+  //   } else {
+  //     callback(null, false);
+  //   }
+  // }
+  methods: ["GET", "PATCH", "POST", "DELETE", "OPTIONS"],
+  optionsSuccessStatus: 200,
+  credentials: true,
+  allowedHeaders: [
+    "Content-Type",
+    "Authorization",
+    "X-Requested-With",
+    "device-remember-token",
+    "Access-Control-Allow-Origin",
+    "Origin",
+    "Accept",
+  ],
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 mongoose
