@@ -11,7 +11,7 @@ app.get("/api/v1", (req, res) => {
     res.send("Welcome");
   });
 var corsOptions = {
-  origin: "*",
+  origin: "https://real-time-chat-app-bay.vercel.app",
   // function (origin, callback) {
   //   if (whitelist.indexOf(origin) !== -1) {
   //     callback(null, true);
