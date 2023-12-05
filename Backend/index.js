@@ -20,7 +20,6 @@ var corsOptions = {
   //   }
   // }
   methods: ["GET", "PATCH", "POST", "DELETE", "OPTIONS"],
-  optionsSuccessStatus: 200,
   credentials: true,
   allowedHeaders: [
     "Content-Type",
@@ -54,9 +53,19 @@ const server = app.listen(process.env.PORT, () =>
   console.log(`Server started on ${process.env.PORT}`)
 );
 const io = socket(server, {
-  cors: {
+cors: {
     origin: "*",
-    credentials: true,
+    methods: ["GET", "PATCH", "POST", "DELETE", "OPTIONS"],
+    allowedHeaders: [
+    "Content-Type",
+    "Authorization",
+    "X-Requested-With",
+    "device-remember-token",
+    "Access-Control-Allow-Origin",
+    "Origin",
+    "Accept",
+  ],
+    credentials: true
   },
 });
 
