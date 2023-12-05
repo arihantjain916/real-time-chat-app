@@ -54,19 +54,8 @@ const server = app.listen(process.env.PORT, () =>
 );
 const io = socket(server, {
 cors: {
-    origin: "*",
-    methods: ["GET", "PATCH", "POST", "DELETE", "OPTIONS"],
-    allowedHeaders: [
-    "Content-Type",
-    "Authorization",
-    "X-Requested-With",
-    "device-remember-token",
-    "Access-Control-Allow-Origin",
-    "Origin",
-    "Accept",
-  ],
-    credentials: true
-  },
+    origin: '*:*',
+}
 });
 
 global.onlineUsers = new Map();
