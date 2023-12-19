@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "project-phase-1-API",
+    "name": "real-time-chat-application",
     "builds": [
         {
             "src": "index.js",
