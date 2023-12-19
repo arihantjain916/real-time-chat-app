@@ -11,7 +11,7 @@ app.get("/api/v1", (req, res) => {
   res.send("Welcome");
 });
 var corsOptions = {
-  origin: "*",
+  origin: "https://real-time-chat-app-bay.vercel.app/",
   // function (origin, callback) {
   //   if (whitelist.indexOf(origin) !== -1) {
   //     callback(null, true);
@@ -30,8 +30,8 @@ var corsOptions = {
     "Accept",
   ],
 };
-// app.use(cors(corsOptions));
-app.use(cors())
+ app.use(cors(corsOptions));
+//app.use(cors())
 app.use(express.json());
 
 mongoose
@@ -54,8 +54,9 @@ const server = app.listen(process.env.PORT, () =>
 );
 const io = socket(server, {
   cors: {
-    origin: "*",
+    origin: "https://real-time-chat-app-bay.vercel.app",
     methods: ["GET", "PATCH", "POST", "DELETE", "OPTIONS"],
+    credentials: true,
   }
 });
 
