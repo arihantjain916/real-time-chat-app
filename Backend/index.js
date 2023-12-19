@@ -20,7 +20,6 @@ var corsOptions = {
   //   }
   // }
   methods: ["GET", "PATCH", "POST", "DELETE", "OPTIONS"],
-  credentials: true,
   allowedHeaders: [
     "Content-Type",
     "Authorization",
@@ -56,7 +55,6 @@ const io = socket(server, {
   cors: {
     origin: "*",
     methods: ["GET", "PATCH", "POST", "DELETE", "OPTIONS"],
-    credentials: true
   }
 });
 
