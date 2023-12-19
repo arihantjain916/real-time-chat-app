@@ -8,8 +8,8 @@ const socket = require("socket.io");
 require("dotenv").config();
 
 app.get("/api/v1", (req, res) => {
-    res.send("Welcome");
-  });
+  res.send("Welcome");
+});
 var corsOptions = {
   origin: "*",
   // function (origin, callback) {
@@ -53,9 +53,11 @@ const server = app.listen(process.env.PORT, () =>
   console.log(`Server started on ${process.env.PORT}`)
 );
 const io = socket(server, {
-cors: {
-    origin: '*:*',
-}
+  cors: {
+    origin: "*",
+    methods: ["GET", "PATCH", "POST", "DELETE", "OPTIONS"],
+    credentials: true
+  }
 });
 
 global.onlineUsers = new Map();
