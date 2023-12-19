@@ -56,7 +56,7 @@ const io = socket(server, {
   cors: {
     origin: "https://real-time-chat-app-bay.vercel.app",
     methods: ["GET", "PATCH", "POST", "DELETE", "OPTIONS"],
-    credentials: true,
+    // credentials: true,
   }
 });
 
